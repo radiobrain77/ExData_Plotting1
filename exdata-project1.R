@@ -1,25 +1,10 @@
 library(datasets)
 
-
-fileName <- "./data/household_power_consumption.txt"
-subset_fileName <- "./data/household_power_consumption_subset.txt"
-
-data <- read.table(fileName,sep=";",header=TRUE,na.string="?")
-d2 <- as.data.frame(data)
-
-tmp <- transform(data,Date=as.Date(Date,"%d/%m/%Y"))
-
-dataset <- tmp[tmp$Date>=as.Date("01/02/2007","%d/%m/%Y") 
-            & tmp$Date<=as.Date("02/02/2007","%d/%m/%Y"),]
-
-#setwd("ExData_Plotting1")
+# this file assumes the data source text file is in 
+# the directory called 'filename'
+filename <- "../data/household_power_consumption.txt"
 
 source("plot1.R")
 source("plot2.R")
 source("plot3.R")
 source("plot4.R")
-
-plot1()
-plot2()
-plot3()
-plot4()

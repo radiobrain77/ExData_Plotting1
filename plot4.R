@@ -1,5 +1,13 @@
 # create plot 2
 
+load_data <- function() {
+  filename <- "../data/household_power_consumption.txt"
+  data <- read.table(filename,sep=";",header=TRUE,na.string="?")
+  tmp <- transform(data,Date=as.Date(Date,"%d/%m/%Y"))
+  dataset <- tmp[tmp$Date>=as.Date("01/02/2007","%d/%m/%Y") 
+                 & tmp$Date<=as.Date("02/02/2007","%d/%m/%Y"),]
+}
+
 draw_plot3a <- function() {
   t5 <- transform(dataset,
                   timepoint=paste(dataset[,1],dataset[,2]))
@@ -60,10 +68,10 @@ draw_plot4 <- function() {
 }
 
 plot4 <- function() {
+  load_data()
   png(filename="plot4.png",width=480,height=480)
-  
   draw_plot4()
-  
   dev.off()  
 }
 
+plot4()
