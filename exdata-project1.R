@@ -12,6 +12,9 @@ tmp <- transform(data,Date=as.Date(Date,"%d/%m/%Y"))
 dataset <- tmp[tmp$Date>=as.Date("01/02/2007","%d/%m/%Y") 
             & tmp$Date<=as.Date("02/02/2007","%d/%m/%Y"),]
 
-setwd("ExData_Plotting1")
+#setwd("ExData_Plotting1")
 
 source("plot1.R")
+source("plot2.R")
+source("plot3.R")
+source("plot4.R")
